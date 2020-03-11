@@ -6,9 +6,11 @@ public class movementLion : MonoBehaviour {
 
 	public float speed;
 	private Rigidbody2D charecterMovement;
+	private SpriteRenderer mySpriteRenderer;
 
 	void Start() {
 		charecterMovement = GetComponent<Rigidbody2D>();
+		mySpriteRenderer = GetComponent<SpriteRenderer>();
 	}
 	
 	void FixedUpdate() {
@@ -16,6 +18,16 @@ public class movementLion : MonoBehaviour {
 		float moveVerticle = Input.GetAxis("Vertical");
 		Vector2 charecterMovementVector = new Vector2(moveHorizontal, moveVerticle);
 		charecterMovement.AddForce(charecterMovementVector * speed);
+
+		if (Input.GetKeyDown(KeyCode.A))
+        {
+            //flip sprite
+            mySpriteRenderer.flipX = false;
+        }
+		if(Input.GetKeyDown(KeyCode.D))
+        {
+			mySpriteRenderer.flipX = true;
+        }
 	}
 }
 
