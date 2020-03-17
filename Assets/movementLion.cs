@@ -19,15 +19,18 @@ public class movementLion : MonoBehaviour {
 		Vector2 charecterMovementVector = new Vector2(moveHorizontal, moveVerticle);
 		charecterMovement.AddForce(charecterMovementVector * speed);
 
-		if (Input.GetKeyDown(KeyCode.A))
-        {
+		if (Input.GetKeyDown(KeyCode.A)) {
             //flip sprite
             mySpriteRenderer.flipX = false;
-        }
-		if(Input.GetKeyDown(KeyCode.D))
-        {
+        } else if (Input.GetKeyDown(KeyCode.LeftArrow)) {
+			//flip sprite
+			mySpriteRenderer.flipX = false;
+		}
+		if (Input.GetKeyDown(KeyCode.D)) {
 			mySpriteRenderer.flipX = true;
-        }
+        } else if (Input.GetKeyDown(KeyCode.RightArrow)) {
+			mySpriteRenderer.flipX = true;
+		}
 	}
 }
 
